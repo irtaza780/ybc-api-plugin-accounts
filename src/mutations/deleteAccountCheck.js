@@ -9,6 +9,8 @@ export default async function deleteAccountCheck(context, input) {
     userId: authUserId,
   } = context;
   const { userId } = input;
+
+  console.log("delete account check function");
   // const decodedAccountId = decodeAccountOpaqueId(accountId);
 
   let checkedAccount = await Accounts.findOne({

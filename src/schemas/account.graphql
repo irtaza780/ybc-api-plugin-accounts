@@ -134,6 +134,12 @@ input UpdateAccountInput {
 
   "Only Admin can update isDeleted"
   isDeleted: Boolean
+
+  "Date of Birth"
+  dob: String
+
+  "Address of user"
+  residence: String
 }
 
 input CheckAccountInput {
@@ -266,6 +272,12 @@ type Account implements Node {
 
   "is soft delete"
   isDeleted: Boolean
+
+  "Date of birth"
+  dob: String
+
+  "Address of user"
+  residence: String
 }
 
 "Represents a single user partial account"

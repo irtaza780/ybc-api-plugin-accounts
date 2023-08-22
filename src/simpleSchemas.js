@@ -429,6 +429,14 @@ export const Account = new SimpleSchema({
     type: Date,
     optional: true,
   },
+  dob: {
+    type: String,
+    optional: true,
+  },
+  residence: {
+    type: String,
+    optional: true,
+  },
 });
 
 /**

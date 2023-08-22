@@ -18,7 +18,7 @@ import { decodeAccountOpaqueId } from "../../xforms/id.js";
  * @return {Promise<Object>} updateAccount
  */
 export default async function updateAccount(_, { input }, context) {
-  console.log("Input is ", input);
+  console.log("Input is here ", input);
   const { accountId, clientMutationId = null, ...otherInput } = input;
   const decodedAccountId = decodeAccountOpaqueId(accountId);
 

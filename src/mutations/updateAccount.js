@@ -48,6 +48,14 @@ const inputSchema = new SimpleSchema({
     type: Boolean,
     optional: true,
   },
+  dob: {
+    type: String,
+    optional: true,
+  },
+  residence: {
+    type: String,
+    optional: true,
+  },
 });
 
 /**
@@ -85,6 +93,8 @@ export default async function updateAccount(context, input) {
     picture,
     username,
     isDeleted,
+    dob,
+    residence,
   } = input;
 
   console.log("in update account providedAccountId ", providedAccountId);
@@ -179,6 +189,20 @@ export default async function updateAccount(context, input) {
     updates.username = username;
     updates["profile.username"] = username;
     updatedFields.push("username");
+  }
+
+  if (typeof dob === "string" || dob === null) {
+    // For some reason we store name in two places. Should fix eventually.
+    updates.dob = dob;
+    // updates["profile.username"] = username;
+    updatedFields.push("dob");
+  }
+
+  if (typeof residence === "string" || residence === null) {
+    // For some reason we store name in two places. Should fix eventually.
+    updates.residence = residence;
+    // updates["profile.username"] = username;
+    updatedFields.push("residence");
   }
 
   if (updatedFields.length === 0) {
