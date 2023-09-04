@@ -56,6 +56,14 @@ const inputSchema = new SimpleSchema({
     type: String,
     optional: true,
   },
+  city: {
+    type: String,
+    optional: true,
+  },
+  state: {
+    type: String,
+    optional: true,
+  },
 });
 
 /**
@@ -95,6 +103,8 @@ export default async function updateAccount(context, input) {
     isDeleted,
     dob,
     residence,
+    state,
+    city
   } = input;
 
   console.log("in update account providedAccountId ", providedAccountId);
@@ -204,6 +214,21 @@ export default async function updateAccount(context, input) {
     // updates["profile.username"] = username;
     updatedFields.push("residence");
   }
+
+  if (typeof city === "string" || city === null) {
+    // For some reason we store name in two places. Should fix eventually.
+    updates.city = city;
+    updates["profile.city"] = city;
+    updatedFields.push("city");
+  }
+  if (typeof state === "string" || state === null) {
+    // For some reason we store name in two places. Should fix eventually.
+    updates.state = state;
+    updates["profile.state"] = state;
+    updatedFields.push("state");
+  }
+
+
 
   if (updatedFields.length === 0) {
     throw new ReactionError(

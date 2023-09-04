@@ -309,6 +309,16 @@ export const Profile = new SimpleSchema({
     blackbox: true,
     optional: true,
   },
+  city: {
+    label: "city",
+    type: String,
+    optional: true,
+  },
+  state: {
+    label: "state",
+    type: String,
+    optional: true,
+  },
 });
 
 /**
@@ -434,6 +444,14 @@ export const Account = new SimpleSchema({
     optional: true,
   },
   residence: {
+    type: String,
+    optional: true,
+  },
+  city: {
+    type: String,
+    optional: true,
+  },
+  state: {
     type: String,
     optional: true,
   },

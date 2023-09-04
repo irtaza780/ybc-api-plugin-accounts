@@ -140,6 +140,12 @@ input UpdateAccountInput {
 
   "Address of user"
   residence: String
+
+  "city of user"
+  city: String
+
+  "state of user"
+  state: String
 }
 
 input CheckAccountInput {
@@ -278,6 +284,15 @@ type Account implements Node {
 
   "Address of user"
   residence: String
+
+  "phone number of the user"
+  phone: String
+
+  "state/province/region of the user"
+  state: String
+
+  "city of user"
+  city: String
 }
 
 "Represents a single user partial account"
