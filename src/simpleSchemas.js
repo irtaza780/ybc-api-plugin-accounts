@@ -193,6 +193,7 @@ export const AccountProfileAddress = new SimpleSchema({
     type: String,
     label: "Country",
   },
+
   isCommercial: {
     label: "This is a commercial address.",
     type: Boolean,
@@ -316,6 +317,11 @@ export const Profile = new SimpleSchema({
   },
   state: {
     label: "state",
+    type: String,
+    optional: true,
+  },
+  currentAddress: {
+    label: "currentAddress",
     type: String,
     optional: true,
   },
@@ -452,6 +458,10 @@ export const Account = new SimpleSchema({
     optional: true,
   },
   state: {
+    type: String,
+    optional: true,
+  },
+  currentAddress: {
     type: String,
     optional: true,
   },

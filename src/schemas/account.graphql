@@ -146,6 +146,9 @@ input UpdateAccountInput {
 
   "state of user"
   state: String
+
+  "current address of the user"
+  currentAddress: String
 }
 
 input CheckAccountInput {
@@ -293,6 +296,9 @@ type Account implements Node {
 
   "city of user"
   city: String
+
+  "current address of the user"
+  currentAddress: String
 }
 
 "Represents a single user partial account"

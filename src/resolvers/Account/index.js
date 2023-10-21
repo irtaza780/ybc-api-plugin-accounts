@@ -17,6 +17,7 @@ export default {
   phone: (account) => account.profile.phone,
   city: (account) => account.profile.city,
   state: (account) => account.profile.state,
+  currentAddress: (account) => account.profile.currentAddress,
   groups,
   lastName: (account) => account.profile.lastName,
   language: (account) => account.profile.language,

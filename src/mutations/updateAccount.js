@@ -64,6 +64,10 @@ const inputSchema = new SimpleSchema({
     type: String,
     optional: true,
   },
+  currentAddress: {
+    type: String,
+    optional: true,
+  },
 });
 
 /**
@@ -104,7 +108,8 @@ export default async function updateAccount(context, input) {
     dob,
     residence,
     state,
-    city
+    city,
+    currentAddress,
   } = input;
 
   console.log("in update account providedAccountId ", providedAccountId);
@@ -228,7 +233,15 @@ export default async function updateAccount(context, input) {
     updatedFields.push("state");
   }
 
+  if (typeof currentAddress === "string" || currentAddress === null) {
+    // For some reason we store name in two places. Should fix eventually.
+    updates.currentAddress = currentAddress;
+    updates["profile.currentAddress"] = currentAddress;
+    updatedFields.push("currentAddress");
+  }
 
+  console.log("updated fields", updatedFields);
+  console.log("updates", updates);
 
   if (updatedFields.length === 0) {
     throw new ReactionError(
@@ -255,6 +268,8 @@ export default async function updateAccount(context, input) {
       returnOriginal: false,
     }
   );
+
+  console.log("updated account is", updatedAccount);
 
   await appEvents.emit("afterAccountUpdate", {
     account: updatedAccount,
