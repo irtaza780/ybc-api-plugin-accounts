@@ -299,6 +299,9 @@ type Account implements Node {
 
   "current address of the user"
   currentAddress: String
+
+  "checks whether the user has a valid stripe connect account created"
+  validStripeConnect: Boolean
 }
 
 "Represents a single user partial account"

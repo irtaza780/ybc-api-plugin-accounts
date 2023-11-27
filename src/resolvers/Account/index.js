@@ -4,9 +4,11 @@ import { encodeAccountOpaqueId } from "../../xforms/id.js";
 import addressBook from "./addressBook.js";
 import adminUIShops from "./adminUIShops.js";
 import groups from "./groups.js";
+import validStripeConnect from "./validStripeConnect.js";
 
 export default {
   _id: (account) => encodeAccountOpaqueId(account._id),
+  validStripeConnect,
   addressBook,
   adminUIShops,
   bio: (account) => account.profile.bio,
